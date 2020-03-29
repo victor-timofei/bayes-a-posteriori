@@ -9,15 +9,17 @@ for i = 1:size(data.trainX, 1)
     images(i, :, :) = reshape(img, 28, 28)';
     labels(i) = data.trainY(i);
 end
-test(:,:) = images (1,:,:)
+%test(:,:) = images (1,:,:)
 digit_C1_indices = find(labels == 1); % digit 1
 digit_C2_indices = find(labels == 2); % digit 2
 
 digit_C1_images = images(digit_C1_indices, :, :);
 digit_C2_images = images(digit_C2_indices, :, :);
-
-
-aRatios = zeros(8,2); % 
+aRatios=zeros(size(data.trainY, 1),1);
+for i = 1:size(data.trainX, 1)
+    aRatios(i) = computeAspectRatio(images (i,:,:));
+end
+%aRatios = zeros(8,2); % 
 % Compute the aspect ratios of all images and store the value of the i-th image in aRatios(i)
 
 %minAspectRatio = ...
