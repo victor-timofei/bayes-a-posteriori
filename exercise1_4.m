@@ -9,7 +9,7 @@ for i = 1:size(data.trainX, 1)
     images(i, :, :) = reshape(img, 28, 28)';
     labels(i) = data.trainY(i);
 end
-%test(:,:) = images (1,:,:)
+test = images (72,:,:)
 digit_C1_indices = find(labels == 1); % digit 1
 digit_C2_indices = find(labels == 2); % digit 2
 
@@ -22,8 +22,8 @@ end
 %aRatios = zeros(8,2); % 
 % Compute the aspect ratios of all images and store the value of the i-th image in aRatios(i)
 
-%minAspectRatio = ...
-%maxAspectRatio = ...
+minAspectRatio = min(aRatios)
+maxAspectRatio = max(aRatios)
 
 numBins = 3;
 
